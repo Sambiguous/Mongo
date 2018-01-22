@@ -8,7 +8,7 @@ var Schema = mongoose.Schema;
 
 var standardSchema = {
     title: String,
-    descr: String,
+    exerpt: String,
     link: String,
     notes: [{date: Date, body: String}]
 };
@@ -23,8 +23,33 @@ var router = express.Router();
 
 router.get("/", function(req, res){
     Article.find().then(function(doc){
-        console.log(doc);
+        //console.log(doc);
         res.render('index.handlebars',{articles: doc})
+    });
+});
+
+router.post("/", function(req, res){
+    request("https://arstechnica.com/gadgets", function(err, response, html){
+
+        var $ = cheerio.load(html);
+        var results = [];
+
+        $('.listing-latest').each(function(index, element){
+            if(index === 0){
+                $(element).children('article').each(function(index, element){
+
+                    var article = {
+                        title: $(element).children('header').children('h2').children('a').html(),
+                        exerpt: $(element).children('header').find('p.excerpt').html(),
+                        link: $(element).children('a').attr('href'),
+                        notes: []
+                    }
+
+                    results.push(article);
+                });
+            }
+        });
+        res.end()
     })
 })
 
