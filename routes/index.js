@@ -36,21 +36,28 @@ router.post("/", function(req, res){
                         notes: []
                     };
 
-                    var data = new db.Article(article)
+                    results.push(new db.Article(article));
 
-                    data.save(function(err, doc, rows){
-                        console.log(err.code);
-                        console.log(doc);
-                        console.log(rows)
-                    })
-
-                        //console.log("an error has occured");
                 });
-
-                // var scrape = new Scrape({data: results});
-                // scrape.save();
             };
         });
+
+        var response
+
+        try{
+            db.Article.insertMany(results, {ordered: false}, function(err, docs){
+                if(err){
+                    console.log(err.result.toJSON());
+                }
+                else{
+                    console.log(docs);
+                }
+            })
+        }
+        catch(err){
+            console.log(err);
+        }
+        
         res.end()
     })
 })

@@ -11,8 +11,9 @@ var articleSchema = new  Schema({
     },
     link: {
         type: String,
-        index: true,
-        unique: true
+        index: {
+            unique: true
+        }
     },
     saved: {
         type: Boolean

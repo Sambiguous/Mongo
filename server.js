@@ -9,9 +9,9 @@ var methodOverride = require("method-override");
 
 var PORT = process.env.PORT || 3000;
 
-//========================================
+//===========================================
 //Initialize Express and set up middleware 
-//========================================
+//===========================================
 var app  = express();
 
 app.use(express.static("public"));
@@ -23,9 +23,9 @@ app.use(routes);
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-//============================================
+//===============================================
 //Initialize mongoDB connection using mongoose
-//============================================
+//===============================================
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/headlines";
