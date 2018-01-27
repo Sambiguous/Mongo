@@ -23,23 +23,21 @@ router.post("/", function(req, res){
 
         $('.listing-latest').each(function(index, element){
 
-            if(index === 0){
-                console.log('routes/index.js line 27', 'for loop executing');
+            console.log('routes/index.js line 27', 'for loop executing');
 
-                $(element).children('article').each(function(index, element){
+            $(element).children('article').each(function(index, element){
 
-                    var article = {
-                        title: $(element).children('header').children('h2').children('a').html(),
-                        exerpt: $(element).children('header').find('p.excerpt').html(),
-                        link: $(element).children('a').attr('href'),
-                        saved: false,
-                        notes: []
-                    };
+                var article = {
+                    title: $(element).children('header').children('h2').children('a').html(),
+                    exerpt: $(element).children('header').find('p.excerpt').html(),
+                    link: $(element).children('a').attr('href'),
+                    saved: false,
+                    notes: []
+                };
 
-                    results.push(new db.Article(article));
+                results.push(new db.Article(article));
 
-                });
-            };
+            });
         });
 
         var response
