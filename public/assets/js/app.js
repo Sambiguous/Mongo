@@ -1,14 +1,12 @@
-$(document).ready(function(){
+// $(document).ready(function(){
     
-    $('#scrape').on('click', function(ev){
-        ev.preventDefault();
+//     $('#scrape').on('click', function(ev){
+//         ev.preventDefault();
 
-        $.ajax({
-            method: "POST",
-            url: '/'
-        }).done(function(response){
-            console.log(response);
-        })
-    })
-
-})
+//         $.get({
+//             url: '/scrape'
+//         }).done(function(response){
+//             console.log(response);
+//         });
+//     });
+// });

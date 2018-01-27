@@ -9,6 +9,10 @@ var articleSchema = new  Schema({
     exerpt: {
         type: String
     },
+    posted_at: {
+        type: Date,
+        required: true
+    },
     link: {
         type: String,
         index: {
@@ -16,7 +20,8 @@ var articleSchema = new  Schema({
         }
     },
     saved: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     notes: [{
           type: Schema.Types.ObjectId,
