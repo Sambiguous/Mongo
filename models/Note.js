@@ -3,15 +3,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var noteSchema = new Schema({
-    data: {
+    date: {
         type: Date,
         default: Date.now
     },
     body: {
-        type: String,
-        validate: [function(){
-            return input.length > 0
-          }, "Can't enter an empty note"]
+        type: String
     }
 });
 

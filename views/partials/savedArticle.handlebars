@@ -5,10 +5,10 @@
         <a href={{this.link}}>View Article</a>
     </div>
     <div class="col col-sm-2 save-btn-div" align="center">
-        {{#if this.saved}}
+
             <button data-link="{{this.link}}" data-saved={{this.saved}} class="btn btn-warning save-button">Unsave</button>    
-        {{else}}
-            <button data-link="{{this.link}}" data-saved={{this.saved}} class="btn btn-warning unsaved save-button">Save</button>
-        {{/if}}
+
+            <button data-link="{{this.link}}" class="btn comment-button">Comment</button>
+
     </div>
 </div>

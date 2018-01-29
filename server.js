@@ -7,7 +7,7 @@ var routes         = require("./routes/index.js");
 var methodOverride = require("method-override");
 
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3005;
 
 //===========================================
 //Initialize Express and set up middleware 
@@ -44,7 +44,7 @@ db.once('open', function() {
 
     //if successfully connected to mongo, start server
     app.listen(PORT, function(){
-        console.log("app listening on port 3000");
+        console.log("app listening on port", PORT);
     });
 });
 

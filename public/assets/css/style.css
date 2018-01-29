@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(136, 123, 123)
+}
+
+.article{
+    background: black;
+    color: #ffffffde;
+    border-bottom: 1px solid grey;
+}
+
+.article h5{
+    color: grey;
+}
+
+.article a {
+    color: #ff4e00
+}
+
+.btn-warning{
+    background: #ff4e00;
+}
+
+.btn {
+    border: none;
+}
+
+.save-btn-div{
+    display: flex;
+    align-items: center;
+}
+
+.save-button{
+    margin: auto;
+}
+
+.comment-button{
+    margin: auto;
+}
+
+.unsaved{
+    background : #01cd74 !important;
+}
+
+.modal-body p {
+    word-wrap: break-word;
+}
+
+
