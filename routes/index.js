@@ -121,7 +121,7 @@ router.get("/articles/:page?", function(req, res){
 
 router.get('/saved', function(req, res){
 
-    db.Article.find({saved: true}).exec(function(err, docs){
+    db.Article.find({saved: true}).sort({posted_at: -1}).exec(function(err, docs){
         var responseObject = {
             articleArray: docs
         }

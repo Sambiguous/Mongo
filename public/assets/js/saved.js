@@ -17,6 +17,7 @@ function saveBtnHandler(btn){
 function commentBtnHandler(btn){
 
     var link = btn.data('link');
+    $('.modal-body').empty();
     
     $('#save-comment').data('link', link);
 
@@ -56,6 +57,7 @@ function saveCommentBtnHandler(btn){
             }
         }).done(function(response){
             $('.modal-body').append($('<p>-' + comment + '</p>'));
+            $('#comment-text').val('')
         });
     };
 };
